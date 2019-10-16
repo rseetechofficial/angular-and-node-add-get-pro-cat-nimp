@@ -1,0 +1,31 @@
+<h4>List of Products</h4>
+<hr>
+ Product Name  : <input [(ngModel)]="newProTitle"> <br> <br>
+ Product Price : <input [(ngModel)]="newProPrice"> <br> <br>
+ Product Description : <input [(ngModel)]="newProDesc"> <br> <br>
+ Select Category : <select [(ngModel)]="newProCat">
+                            <option [value]="cat._id" *ngFor="let cat of categories">{{cat.name}}</option>
+                    </select><br><br>
+<button (click)="addNewProduct()">Add New Product</button>
+<hr>
+<br>
+<h4>List of Products</h4>
+<hr>
+<input [(ngModel)]="searchText" placeholder="filter your products list" style="float: right; margin-right: 38%;">
+<br><br>
+<table *ngIf="products" border="2">
+    <tr>
+        <th>Product Id</th>
+        <th>Product Name</th>
+        <th>Product Price</th>
+        <th>Category Id</th>
+        <th>Category Name</th>
+    </tr>    
+    <tr *ngFor="let pro of products | filter : searchText">
+        <td>{{ pro._id }}</td>
+        <td>{{ pro.title }}</td>
+        <td>{{ pro.price }}</td>
+        <td>{{ pro.category._id }}</td>
+        <td>{{ pro.category.name }}</td>
+    </tr>
+</table>

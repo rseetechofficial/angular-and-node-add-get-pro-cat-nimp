@@ -1,0 +1,12 @@
+<h4>List of Categories</h4>
+<hr>
+<ul>
+    <li *ngFor="let cat of categories">
+        {{ cat.name }}
+    </li>
+</ul>
+
+
+<hr>
+<input [(ngModel)]="newCat">
+<button (click)="addNewCategory()">Add New Category</button>
